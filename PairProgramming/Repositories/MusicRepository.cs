@@ -1,4 +1,5 @@
-﻿using PairProgramming.Models;
+﻿using Microsoft.AspNetCore.Mvc;
+using PairProgramming.Models;
 using System.Security.Cryptography.X509Certificates;
 
 namespace PairProgramming.Repositories
@@ -16,12 +17,27 @@ namespace PairProgramming.Repositories
                 new Music() { id = 2,title = "hay", artist = "Haydar",duration = 145, publicationYear = 2020}
 
 
-            };           
+            };
         }
-        public List<Music> GetAll()
+        public List<Music?> GetAll(string title, int duration, string artist)
         {
             List<Music> list = new List<Music>();
+            if (title == null)
+            {
+                list = list.FindAll(l => l.title.Contains(title, StringComparison.InvariantCultureIgnoreCase));
+            }
+            
+            if (duration < 0)
+            {
+                list = list.FindAll(l => l.duration <= duration);
+            }
+            if (artist == null)
+            {
+                list = list.FindAll(l => l.artist.Contains(artist, StringComparison.InvariantCultureIgnoreCase));
+            }
+
             return list;
         }
+        
     }
 }
