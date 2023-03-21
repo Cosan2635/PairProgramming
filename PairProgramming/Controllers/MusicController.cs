@@ -7,9 +7,9 @@ using PairProgramming.Repositories;
 
 namespace PairProgramming.Controllers
 {
-    [EnableCors]
+    //[EnableCors]
     [Route("api/[controller]")]
-    //URI:api/music
+    //URL:api/music
     [ApiController]
     public class MusicController : ControllerBase
     {
@@ -22,35 +22,34 @@ namespace PairProgramming.Controllers
         // GET: api/<MusicController>
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        [EnableCors]
+        //[EnableCors]
         [HttpGet]        
-        public ActionResult<IEnumerable<Music>> GetAll([FromQuery] string? title,
-                                                       [FromQuery] int duration,
-                                                       [FromQuery]string? artist)
+        public ActionResult<IEnumerable<Music>> GetAll([FromQuery] string? title = null,
+                                                       [FromQuery] int duration = 0,
+                                                       [FromQuery]string? artist = null)
         {
-            List<Music> result = _repo.GetAll(title,duration,artist);
-            if (result.Count == 0)
-            {
-                return NotFound();
-            }
-            if(result.Count < 1)
-            { 
-               return NotFound();
-            }
-           
+            List<Music>? result = _repo.GetAll(title,duration,artist);
+            //if(result.Count < 1)
+            //{ 
+            //   return NotFound();
+            // }
+            Response.Headers.Add("TotalAmount", "" + result.Count());
             return Ok(result);
 
         }
 
         // GET api/<MusicController>/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public ActionResult<string> Get(int id)
         {
-            return "value";
+            return "Value";
+
         }
 
-        // POST api/<MusicController>
-        [HttpPost]
+
+
+            // POST api/<MusicController>
+            [HttpPost]
         public void Post([FromBody] string value)
         {
         }
@@ -65,6 +64,7 @@ namespace PairProgramming.Controllers
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
+
         }
     }
 }

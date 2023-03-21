@@ -13,12 +13,14 @@ namespace PairProgramming.Repositories
             _NextId = 1;
             _musics = new List<Music>()
             {
-                new Music() { id = 1, title = "moo", artist = "Mohammed", duration = 150, publicationYear = 2022 },
+                new Music() { id = 1, title = "moo", artist = "Muhammed", duration = 150, publicationYear = 2022 },
                 new Music() { id = 2,title = "hay", artist = "Haydar",duration = 145, publicationYear = 2020}
 
 
             };
         }
+
+
         public List<Music?> GetAll(string title, int duration, string artist)
         {
             List<Music> list = new List<Music>();
@@ -27,7 +29,7 @@ namespace PairProgramming.Repositories
                 list = list.FindAll(l => l.title.Contains(title, StringComparison.InvariantCultureIgnoreCase));
             }
             
-            if (duration < 0)
+            if (duration > 0)
             {
                 list = list.FindAll(l => l.duration <= duration);
             }
@@ -38,6 +40,7 @@ namespace PairProgramming.Repositories
 
             return list;
         }
+
         
     }
 }
