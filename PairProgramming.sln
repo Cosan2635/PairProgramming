@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PairProgramming", "PairProgramming\PairProgramming.csproj", "{D26807E8-7D3E-4561-AFF1-9EF3CBA1DAB1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PairProgramming", "PairProgramming\PairProgramming.csproj", "{D26807E8-7D3E-4561-AFF1-9EF3CBA1DAB1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PairProgrammingTests", "PairProgrammingTests\PairProgrammingTests.csproj", "{6EA3DBCA-5789-423B-A182-3D01B9EE534C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{D26807E8-7D3E-4561-AFF1-9EF3CBA1DAB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D26807E8-7D3E-4561-AFF1-9EF3CBA1DAB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D26807E8-7D3E-4561-AFF1-9EF3CBA1DAB1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6EA3DBCA-5789-423B-A182-3D01B9EE534C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6EA3DBCA-5789-423B-A182-3D01B9EE534C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6EA3DBCA-5789-423B-A182-3D01B9EE534C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6EA3DBCA-5789-423B-A182-3D01B9EE534C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
