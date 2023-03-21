@@ -22,7 +22,7 @@ namespace PairProgramming.Repositories
         public List<Music?> GetAll(string title, int duration, string artist)
         {
             List<Music> list = new List<Music>();
-            if (title == null)
+            if (title != null)
             {
                 list = list.FindAll(l => l.title.Contains(title, StringComparison.InvariantCultureIgnoreCase));
             }
@@ -31,7 +31,7 @@ namespace PairProgramming.Repositories
             {
                 list = list.FindAll(l => l.duration <= duration);
             }
-            if (artist == null)
+            if (artist != null)
             {
                 list = list.FindAll(l => l.artist.Contains(artist, StringComparison.InvariantCultureIgnoreCase));
             }

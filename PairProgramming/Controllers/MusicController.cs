@@ -1,19 +1,40 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Mvc;
 using PairProgramming.Models;
+using PairProgramming.Repositories;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace PairProgramming.Controllers
 {
+    [EnableCors]
     [Route("api/[controller]")]
+    //URI:api/music
     [ApiController]
     public class MusicController : ControllerBase
     {
-        // GET: api/<MusicController>
-        [HttpGet]
-        public IEnumerable<string> Get()
+        private MusicRepository _repo;
+
+        public MusicController(MusicRepository repo)
         {
-            return new string[] { "value1", "value2" };
+            _repo = repo;
+        }
+        // GET: api/<MusicController>
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [EnableCors]
+        [HttpGet]        
+        public ActionResult<IEnumerable<Music>> GetAll([FromQuery] string? title,
+                                                       [FromQuery] int duration,
+                                                       [FromQuery]string? artist)
+        {
+            List<Music>? result = _repo.GetAll(title,duration,artist);
+            if(result.Count < 1)
+            { 
+               return NotFound();
+            }
+            return Ok(result);
+
         }
 
         // GET api/<MusicController>/5
