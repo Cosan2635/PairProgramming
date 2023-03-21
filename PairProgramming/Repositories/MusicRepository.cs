@@ -19,15 +19,7 @@ namespace PairProgramming.Repositories
 
             };
         }
-        public List<Music>GetAll()
-        {
-            return new List<Music>(_musics);
-        }
 
-        public Music? GetByID(int id)
-        {
-            return _musics.Find(x=> x.id == id);
-        }
 
         public List<Music?> GetAll(string title, int duration, string artist)
         {
