@@ -28,11 +28,16 @@ namespace PairProgramming.Controllers
                                                        [FromQuery] int duration,
                                                        [FromQuery]string? artist)
         {
-            List<Music>? result = _repo.GetAll(title,duration,artist);
+            List<Music> result = _repo.GetAll(title,duration,artist);
+            if (result.Count == 0)
+            {
+                return NotFound();
+            }
             if(result.Count < 1)
             { 
                return NotFound();
             }
+           
             return Ok(result);
 
         }
