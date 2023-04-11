@@ -17,9 +17,9 @@ namespace PairProgramming.Repositories.Tests
         public void GetAllTest()
         {
          MusicRepository repo = new MusicRepository();
-         List<Music?> musics= repo.GetAll("moo", 150, "Muhammed");
+         List<Music> musics= repo.GetAll("moo", 150, "Muhammed");
          Assert.IsNotNull(musics);
-            Assert.IsTrue(musics.Count() >= 0);
-        }
+         Assert.IsTrue(musics.Count() >= 0);
+         }
     }
 }
